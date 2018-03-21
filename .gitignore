@@ -86,8 +86,8 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-.gitignore
+
 .idea/
 node_modules/
 package-lock.json
-!/.gitignore
+

@@ -1,0 +1,15 @@
+<h2>Completed Tasks</h2>
+
+<div class="task-list">
+
+    {{#if tasks}}
+        <ul>
+            {{#each tasks}}
+                <li>{{this.text}}</li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No tasks have been completed.</p>
+    {{/if}}
+
+</div>

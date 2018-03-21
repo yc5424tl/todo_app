@@ -1,0 +1,30 @@
+<h2>Tasks To Do</h2>
+
+<div class="add-task">
+    <form id="add-task-form" action="/add" method="POST">
+        <input id="add-task-text" name="text" placeholder="todo task">
+        <input id="add-task-button" name="add" type="submit" value="add">
+    </form>
+</div>
+
+<div class="task-list">
+    {{#if tasks}}
+        <ol>
+            {{#each tasks}}
+                <li>{{this.text}}
+                <form class="done-form" action="/done" method="POST">
+                    <input class="done-button" type="submit" name="done" value="Done!">
+                    <input type="hidden" name="_id" value="{{this._id}}">
+                </form>
+
+                <form class="delete-form" action="/delete" method="POST">
+                    <input class="delete-button" type="submit" name="delete" value="Delete">
+                    <input type="hidden" name="_id" value="{{this._id}}">
+                </form>
+                </li>
+            {{/each}}
+        </ol>
+    {{else}}
+        <P>No tasks to do!</P>
+    {{/if}}
+</div>

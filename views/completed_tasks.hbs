@@ -5,7 +5,7 @@
     {{#if tasks}}
         <ul>
             {{#each tasks}}
-                <li>{{this.text}}</li>
+                <li><a href="task/{{this._id}}">{{this.text}}</a></li>
             {{/each}}
         </ul>
     {{else}}

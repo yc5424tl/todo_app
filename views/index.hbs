@@ -11,7 +11,7 @@
     {{#if tasks}}
         <ol>
             {{#each tasks}}
-                <li>{{this.text}}
+                <li><a href="task/{{this._id}}">{{this.text}}</a>
                 <form class="done-form" action="/done" method="POST">
                     <input class="done-button" type="submit" name="done" value="Done!">
                     <input type="hidden" name="_id" value="{{this._id}}">
@@ -28,3 +28,11 @@
         <P>No tasks to do!</P>
     {{/if}}
 </div>
+
+{{#if tasks}}
+    <div class="all-done">
+        <form action="/alldone" method="POST">
+            <input class="all-done-button" type="submit" value="All Done!">
+        </form>
+    </div>
+{{/if}}

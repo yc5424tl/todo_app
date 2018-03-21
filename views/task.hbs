@@ -1,0 +1,9 @@
+<h2>{{task.text}}</h2>
+
+<div class="task-info">
+    {{#if task.completed}}
+        <p>{{task.text}} is completed.</p>
+    {{else}}
+        <p>{{task.text}} is not yet completed.</p>
+    {{/if}}
+</div>

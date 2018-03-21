@@ -1,8 +1,62 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 10px;
+    font-family: "Fredericka the Great", cursive, sans-serif;
+    background-color: #2C4251;
+    color: #2C4251;
+    font-weight: 800;
+    font-size: 32pt;
+    width: 100%;
 }
 
 a {
-  color: #00B7FF;
+    color: #2C4251;
+}
+a:hover, a:focus {
+    color: #D16666;
+}
+div {
+    padding: 20px;
+    background-color: #C1C1C1;
+    }
+
+h2 {
+    background-color: #D16666;
+    padding: 10px;
+    display: inline;
+    margin: 15px;
+    font-size: 42pt;
+}
+
+ol > li {
+    display: inline-table;
+}
+
+
+.navigation > a {
+
+    display: inline-block;
+
+}
+ol > li > form > input[type=submit] {
+    width: auto;
+}
+
+ol > li > form {
+    display: inline-block;
+
+}
+
+input {
+    background-color: #2C4251;
+    color: #D16666;
+    font-family: "Fredericka the Great", cursive, sans-serif;
+    font-size: 25pt;
+    font-weight: 800;
+    width:45%;
+}
+
+.all-done-button {
+    width:  100%;
+    margin: 0 10px 0 0;
+
 }

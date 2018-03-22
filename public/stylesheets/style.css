@@ -1,22 +1,67 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+#add-task-text::placeholder{
+    color: #6B6A6A;
+    text-align: center;
+    font-size: 22pt;
+}
+
+#add-task-text {
+    text-align: center;
+}
+
+pre{
+    color: white;
+    white-space: pre-wrap;
+    font-family: "Source Code Pro", sans-serif;
+    font-size: 10pt;
+}
+
+.delete-button {
+    border-left: 1pt solid #93A8AC;
+    border-collapse: collapse;
+}
+
+.done-button {
+    border-right: 1pt solid #93A8AC;
+    border-collapse: collapse;
+}
+
+ul {
+    list-style: none;
+}
 body {
-    padding: 10px;
+    padding: 20px 50px 20px 20px;
     font-family: "Fredericka the Great", cursive, sans-serif;
-    background-color: #2C4251;
-    color: #2C4251;
+    background-color: #011627;
+    color: #011627;
     font-weight: 800;
     font-size: 32pt;
-    width: 100%;
+    width: 90%;
+    margin: auto;
 }
 
 a {
-    color: #2C4251;
+    color: #011627;
+    padding: 5px;
 }
 a:hover, a:focus {
     color: #D16666;
+   
 }
 div {
     padding: 20px;
-    background-color: #C1C1C1;
+    background-color: #93A8AC;
+    text-align: center;
+    width: 100%;
+
+
     }
 
 h2 {
@@ -25,10 +70,14 @@ h2 {
     display: inline;
     margin: 15px;
     font-size: 42pt;
+    text-align: start;
 }
 
 ol > li {
     display: inline-table;
+
+    margin: 25px;
+
 }
 
 
@@ -39,6 +88,14 @@ ol > li {
 }
 ol > li > form > input[type=submit] {
     width: auto;
+    transition: 0.4s;
+}
+
+input[type=submit]:hover {
+    background-color: #D16666;
+    border-color: #011627;
+    color: #011627;
+    transition: 0.4s;
 }
 
 ol > li > form {
@@ -47,16 +104,34 @@ ol > li > form {
 }
 
 input {
-    background-color: #2C4251;
+    background-color: #011627;
     color: #D16666;
     font-family: "Fredericka the Great", cursive, sans-serif;
     font-size: 25pt;
     font-weight: 800;
     width:45%;
+    border-color: #011627;
 }
 
 .all-done-button {
-    width:  100%;
-    margin: 0 10px 0 0;
+    width:  80%;
+    margin: 0;
 
+}
+
+.error-message, .info-message {
+    background-color: #011627;
+    color: #B6C649;
+    text-align: center;
+    box-shadow:  3px 6px 12px rgba(112,43,43,.5);
+}
+
+.add-task{
+    border-top-left-radius: 4pt;
+    border-top-right-radius: 4pt;
+}
+
+.navigation {
+    border-bottom-left-radius: 4pt;
+    border-bottom-right-radius: 4pt;
 }

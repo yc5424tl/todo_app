@@ -26,6 +26,7 @@ router.post('/add', function(req, res, next) {
             next(err);
         });
     } else {
+        req.flash('error', 'Please enter a task.')
         res.redirect('/');
     }
 });
@@ -36,6 +37,7 @@ router.post('/done', function(req, res, next) {
 
       .then( (originalTask) => {
           if (originalTask) {
+              req.flash('info', originalTask.text + ' marked as done!');
               res.redirect('/');
           } else {
               let err = new Error('Not Found');
@@ -65,6 +67,7 @@ router.post('/delete', function(req, res, next){
     Task.findByIdAndRemove(req.body._id)
         .then( (deletedTask) => {
             if(deletedTask) {
+                req.flash('info', deletedTask.text + ' deleted.')
                 res.redirect('/');
             } else {
                 let error = new Error('Task Not Found')
@@ -83,6 +86,7 @@ router.post('/alldone', function(req, res, next){
 
     Task.updateMany({completed: false}, {completed: true})
         .then( () => {
+            req.flash('info', 'All tasks are done!');
             res.redirect('/');
         })
         .catch( (err) => {
@@ -106,6 +110,25 @@ router.get('/task/:_id', function(req, res, next){
             next(err);
         });
     });
+
+
+
+router.post('/deleteDone', function(req, res, next) {
+
+    Task.deleteMany({completed: true})
+        .then( (deletedTasks) => {
+            if (deletedTasks) {
+                res.redirect('/');
+            } else {
+                let error = new Error('No Tasks Found');
+                error.status = 404;
+                next(error);
+            }
+        })
+        .catch((err) => {
+            next(err);
+        })
+});
 
 
 

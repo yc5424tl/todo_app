@@ -1,7 +1,6 @@
 <h2>Completed Tasks</h2>
 
 <div class="task-list">
-
     {{#if tasks}}
         <ul>
             {{#each tasks}}
@@ -11,5 +10,12 @@
     {{else}}
         <p>No tasks have been completed.</p>
     {{/if}}
-
 </div>
+
+{{#if tasks}}
+    <div class="delete-completed-tasks">
+        <form class="delete-completed-form" action="/deleteDone" method="POST">
+            <input class="delete-completed-button" type="submit" value="Delete completed tasks">
+        </form>
+    </div>
+{{/if}}

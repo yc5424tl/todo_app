@@ -11,6 +11,8 @@ let taskSchema = new Schema({
     dateCompleted: Date
 });
 
+/* test commit comment */
+
 let Task = mongoose.model('Task', taskSchema);
 
 

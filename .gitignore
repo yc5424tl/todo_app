@@ -89,6 +89,7 @@ fabric.properties
 
 .idea/
 node_modules/
-package-lock.json
+
 
 !/bin/www
+!/package-lock.json

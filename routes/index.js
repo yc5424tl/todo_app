@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 router.post('/add', function(req, res, next) {
 
     if(req.body.text) {
-        let t = new Task({text: req.body.text, completed: false});
+        let t = new Task({text: req.body.text, completed: false, dateCreated: Date.now()});
         t.save().then((newTask) => {
             console.log('The new task created is ', newTask);
             res.redirect('/');
@@ -33,7 +33,7 @@ router.post('/add', function(req, res, next) {
 
 router.post('/done', function(req, res, next) {
 
-  Task.findByIdAndUpdate( req.body._id, {completed: true})
+  Task.findByIdAndUpdate( req.body._id, {completed: true, dateCompleted: Date.now()})
 
       .then( (originalTask) => {
           if (originalTask) {
@@ -84,7 +84,7 @@ router.post('/delete', function(req, res, next){
 
 router.post('/alldone', function(req, res, next){
 
-    Task.updateMany({completed: false}, {completed: true})
+    Task.updateMany({completed: false}, {completed: true, dateCompleted: Date.now()})
         .then( () => {
             req.flash('info', 'All tasks are done!');
             res.redirect('/');
@@ -118,7 +118,9 @@ router.post('/deleteDone', function(req, res, next) {
     Task.deleteMany({completed: true})
         .then( (deletedTasks) => {
             if (deletedTasks) {
+                req.flash('info', 'All completed tasks deleted')
                 res.redirect('/');
+
             } else {
                 let error = new Error('No Tasks Found');
                 error.status = 404;

@@ -131,7 +131,36 @@ input {
     border-top-right-radius: 4pt;
 }
 
+.task-date{
+    padding-top: 0;
+    font-size: 9pt;
+    font-weight: normal;
+}
+
 .navigation {
     border-bottom-left-radius: 4pt;
     border-bottom-right-radius: 4pt;
+}
+
+.completed-task-li {
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.completed-task-div {
+    width: 60%;
+    height: 100%;
+    border: 2pt solid whitesmoke;
+    border-radius: 4pt;
+    margin-left: 16%;
+    background-color: #011627;
+    color: white;
+}
+
+.completed-task-div > a{
+    color: #FFF;
+}
+
+.completed-task-div > a:hover, .completed-task-div > a:focus {
+    color: #D16666;
 }

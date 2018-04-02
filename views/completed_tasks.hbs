@@ -4,7 +4,13 @@
     {{#if tasks}}
         <ul>
             {{#each tasks}}
-                <li><a href="task/{{this._id}}">{{this.text}}</a></li>
+                <li class="completed-task-li">
+                    <div class="completed-task-div">
+                        <a href="task/{{this._id}}">{{this.text}}</a>
+                        <p class="task-date">Created @ {{this.dateCreated}}</p>
+                        <p class="task-date">Completed @ {{this.dateCreated}}</p>
+                    </div>
+                </li>
             {{/each}}
         </ul>
     {{else}}
@@ -15,7 +21,14 @@
 {{#if tasks}}
     <div class="delete-completed-tasks">
         <form class="delete-completed-form" action="/deleteDone" method="POST">
-            <input class="delete-completed-button" type="submit" value="Delete completed tasks">
+            <input id="delete-all-done" class="delete-completed-button" type="submit" value="Delete completed tasks">
         </form>
     </div>
 {{/if}}
+
+<div class="flash-messages">
+    {{#if messages}}
+        <p class="error-message">{{messages.error}}</p>
+        <p class="info-message">{{messages.info}}</p>
+    {{/if}}
+</div>

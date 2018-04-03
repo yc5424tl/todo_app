@@ -1,13 +1,5 @@
 <h2>Tasks To Do</h2>
 
-<div class="add-task">
-    <form id="add-task-form" action="/add" method="POST">
-        <input id="add-task-text" name="text" placeholder="[type todo task here]" required>
-        <input id="add-task-button" name="add" type="submit" value="add">
-    </form>
-</div>
-<!-- test commit comment -->
-
 <div class="flash-messages">
     {{#if messages}}
         <p class="error-message">{{messages.error}}</p>
@@ -15,22 +7,33 @@
     {{/if}}
 </div>
 
+
+<div class="add-task">
+    <form id="add-task-form" action="/add" method="POST">
+        <input id="add-task-text" name="text" placeholder="[type todo task here]" required>
+        <input id="add-task-button" name="add" type="submit" value="add">
+    </form>
+</div>
+
 <div class="task-list">
     {{#if tasks}}
         <ol>
             {{#each tasks}}
-                <li><a href="task/{{this._id}}">{{this.text}}:</a>
-                <form class="done-form" action="/done" method="POST">
-                    <input class="done-button" type="submit" name="done" value="Done!">
-                    <input type="hidden" name="_id" value="{{this._id}}">
-                </form>
+                    <li >
+                        <div class="index-task">
+                            <a class='task-link' href="task/{{this._id}}">{{this.text}}</a>
+                            <form class="done-form" action="/done" method="POST">
+                                <input class="done-button" type="submit" name="done" value="Done!">
+                                <input type="hidden" name="_id" value="{{this._id}}">
+                            </form>
 
-                <form class="delete-form" action="/delete" method="POST">
-                    <input class="delete-button" type="submit" name="delete" value="Delete">
-                    <input type="hidden" name="_id" value="{{this._id}}">
-                </form>
-                </li>
-                <div class="task-date"><span>Created @ {{this.dateCreated}}</span></div>
+                            <form class="delete-form" action="/delete" method="POST">
+                                <input class="delete-button" type="submit" name="delete" value="Delete">
+                                <input type="hidden" name="_id" value="{{this._id}}">
+                            </form>
+                            <p class="task-date-index">Created @ {{this.dateCreated}}</p>
+                        </div>
+                    </li>
             {{/each}}
         </ol>
     {{else}}

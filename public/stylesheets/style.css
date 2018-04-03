@@ -3,11 +3,10 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-
 }
 
-#add-task-text::placeholder{
-    color: #6B6A6A;
+#add-task-text::placeholder {
+    color: #B6C649;
     text-align: center;
     font-size: 22pt;
 }
@@ -16,7 +15,7 @@ html {
     text-align: center;
 }
 
-pre{
+pre {
     color: white;
     white-space: pre-wrap;
     font-family: "Source Code Pro", sans-serif;
@@ -24,18 +23,19 @@ pre{
 }
 
 .delete-button {
-    border-left: 1pt solid #93A8AC;
+    border: 1pt solid white;
     border-collapse: collapse;
 }
 
 .done-button {
-    border-right: 1pt solid #93A8AC;
+    border: 1pt solid white;
     border-collapse: collapse;
 }
 
 ul {
     list-style: none;
 }
+
 body {
     padding: 20px 50px 20px 20px;
     font-family: "Fredericka the Great", cursive, sans-serif;
@@ -51,18 +51,17 @@ a {
     color: #011627;
     padding: 5px;
 }
+
 a:hover, a:focus {
     color: #D16666;
-   
 }
+
 div {
     padding: 20px;
     background-color: #93A8AC;
     text-align: center;
     width: 100%;
-
-
-    }
+}
 
 h2 {
     background-color: #D16666;
@@ -75,24 +74,21 @@ h2 {
 
 ol > li {
     display: inline-table;
-
     margin: 25px;
-
 }
-
 
 .navigation > a {
-
     display: inline-block;
-
 }
+
 ol > li > form > input[type=submit] {
     width: auto;
     transition: 0.4s;
+    border-color: white;
 }
 
 input[type=submit]:hover {
-    background-color: #D16666;
+    background-color: #FFFFFF;
     border-color: #011627;
     color: #011627;
     transition: 0.4s;
@@ -100,12 +96,11 @@ input[type=submit]:hover {
 
 ol > li > form {
     display: inline-block;
-
 }
 
 input {
     background-color: #011627;
-    color: #D16666;
+    color: white;
     font-family: "Fredericka the Great", cursive, sans-serif;
     font-size: 25pt;
     font-weight: 800;
@@ -116,7 +111,6 @@ input {
 .all-done-button {
     width:  80%;
     margin: 0;
-
 }
 
 .error-message, .info-message {
@@ -126,20 +120,37 @@ input {
     box-shadow:  3px 6px 12px rgba(112,43,43,.5);
 }
 
-.add-task{
+.add-task {
     border-top-left-radius: 4pt;
     border-top-right-radius: 4pt;
 }
 
-.task-date{
-    padding-top: 0;
+.task-date {
+    padding: 0;
+    margin: 10px 0 0 20%;
     font-size: 9pt;
-    font-weight: normal;
+    font-weight: 600;
+    color: #D16666;
+    background-color: #011627;
+    width: 60%;
+}
+
+.task-date-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.task-info {
+    border-top-right-radius: 4pt;
+    border-top-left-radius: 4pt;
 }
 
 .navigation {
     border-bottom-left-radius: 4pt;
     border-bottom-right-radius: 4pt;
+    border-top: 3pt dashed #011627;
 }
 
 .completed-task-li {
@@ -157,7 +168,7 @@ input {
     color: white;
 }
 
-.completed-task-div > a{
+.completed-task-div > a {
     color: #FFF;
 }
 
@@ -165,4 +176,51 @@ input {
     color: #D16666;
 }
 
-/* test comment */
+.u-line {
+    text-decoration: underline;
+}
+
+input[type='submit'] {
+    border: 2pt solid white;
+    border-radius: 4pt;
+}
+
+.index-task {
+    border: 2pt solid #011627;
+    border-radius: 8pt;
+    background: linear-gradient(#011627, #011627);
+}
+
+.task-link {
+    color: #B6C649;
+}
+
+.task-date.task-view {
+    background-color: #011627;
+    color: #93A8AC;
+    box-shadow:  2px 4px 4px 4px  rgba(112,43,43,.5);
+    margin-bottom: 25px;
+}
+
+.task-date-index {
+    padding: 0;
+    margin: 10px 0 0 0;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #D16666;
+}
+
+.index-task > .task-date {
+    color: white;
+}
+
+.index-task > .done-form > .done-button, .index-task > .delete-form > .delete-button {
+    border: 1pt solid white;
+    border-radius: 4pt;
+}
+
+.done-form > .done-button:focus, .done-form > .done-button:hover,
+.delete-form > .delete-button:focus, .delete-form > .delete-button:hover {
+    border-color: #011627;
+    background-color: white;
+}

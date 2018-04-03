@@ -6,11 +6,11 @@ router.get('/', function(req, res, next) {
 
     Task.find({completed: false})
         .then((docs) => {
-        res.render('index', {title: 'Incomplete tasks', tasks: docs});
-    })
+            res.render('index', {title: 'Incomplete tasks', tasks: docs});
+        })
         .catch((err) => {
-        next(err);
-    });
+            next(err);
+        });
 });
 
 
@@ -23,8 +23,8 @@ router.post('/add', function(req, res, next) {
             res.redirect('/');
         })
             .catch((err) => {
-            next(err);
-        });
+                next(err);
+            });
     } else {
         req.flash('error', 'Please enter a task.')
         res.redirect('/');
@@ -32,22 +32,21 @@ router.post('/add', function(req, res, next) {
 });
 
 router.post('/done', function(req, res, next) {
+    Task.findByIdAndUpdate( req.body._id, {completed: true, dateCompleted: Date.now()})
 
-  Task.findByIdAndUpdate( req.body._id, {completed: true, dateCompleted: Date.now()})
-
-      .then( (originalTask) => {
-          if (originalTask) {
-              req.flash('info', originalTask.text + ' marked as done!');
-              res.redirect('/');
-          } else {
-              let err = new Error('Not Found');
-              err.status = 404;
-              next(err);
-          }
-      })
-      .catch( (err) => {
-          next(err);
-      });
+        .then( (originalTask) => {
+            if (originalTask) {
+                req.flash('info', originalTask.text + ' marked as done!');
+                res.redirect('/');
+            } else {
+                let err = new Error('Not Found');
+                err.status = 404;
+                next(err);
+            }
+        })
+        .catch( (err) => {
+            next(err);
+        });
 });
 
 router.get('/completed', function(req, res, next){
@@ -59,7 +58,7 @@ router.get('/completed', function(req, res, next){
         .catch( (err) => {
             next(err);
         });
-    });
+});
 
 
 router.post('/delete', function(req, res, next){
@@ -78,9 +77,8 @@ router.post('/delete', function(req, res, next){
         .catch( (err) => {
             next(err);
         })
+});
 
-    });
-/* test commit comment */
 
 router.post('/alldone', function(req, res, next){
 
@@ -92,7 +90,7 @@ router.post('/alldone', function(req, res, next){
         .catch( (err) => {
             next(err);
         });
-    });
+});
 
 
 router.get('/task/:_id', function(req, res, next){
@@ -109,7 +107,7 @@ router.get('/task/:_id', function(req, res, next){
         .catch( (err) => {
             next(err);
         });
-    });
+});
 
 
 

@@ -1,13 +1,31 @@
 <h2>{{task.text}}</h2>
 
 <div class="task-info">
+
     {{#if task.completed}}
-        <p>{{task.text}} is completed.</p>
-        <p>Created @ {{task.dateCreated}}</p>
-        <p>Completed @ {{task.dateCompleted}}</p>
+        <ul class="task-date-list">
+            <li>{{task.text}} is <span class="u-line">complete</span>.</li>
+            <li class="task-date task-view">Created @ {{task.dateCreated}}</li>
+            <li class="task-date task-view">Completed @ {{task.dateCompleted}}</li>
+        </ul>
+
     {{else}}
-        <p>{{task.text}} is not yet completed.</p>
-        <p>Created @ {{task.dateCreated}}</p>
+        <ul class="task-date-list">
+            <li>{{task.text}} is not yet <span class="u-line">complete</span>.</li>
+            <li class="task-date">Created @ {{task.dateCreated}}</li>
+            <li>
+                <form class="done-form" action="/done" method="post">
+                    <input class="done-button" type="submit" name="done" value="Done!">
+                    <input type="hidden" name="_id" value="{{task.id}}">
+                </form>
+            </li>
+        </ul>
     {{/if}}
+
+    <form class="delete-task-form" action="/delete" method="post">
+        <input class="delete-task-button" type="submit" name="delete" value="Delete">
+        <input type="hidden" name="_id" value="{{task._id}}">
+    </form>
+
 </div>
-<!-- test commit comment -->
+

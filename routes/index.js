@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let Task = require('../models/task');
+let flash = require('express-flash');
 
 router.get('/', function(req, res, next) {
 
@@ -66,7 +67,7 @@ router.post('/delete', function(req, res, next){
     Task.findByIdAndRemove(req.body._id)
         .then( (deletedTask) => {
             if(deletedTask) {
-                req.flash('info', deletedTask.text + ' deleted.')
+                req.flash('info', deletedTask.text + ': Task deleted.')
                 res.redirect('/');
             } else {
                 let error = new Error('Task Not Found')

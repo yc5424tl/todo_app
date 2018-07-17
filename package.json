@@ -6,18 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "latest",
+    "body-parser": "^1.18.3",
     "confirm-dialog": "^0.1.2",
     "cookie-parser": "~1.4.3",
-    "d3": "^5.0.0",
+    "d3": "^5.4.0",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "hbs": "~4.0.1",
     "http-errors": "^1.6.3",
-    "jsdom": "^11.7.0",
-    "mongoose": "^5.0.12",
+    "jsdom": "^11.10.0",
+    "mongoose": "^5.1.1",
     "morgan": "~1.9.0",
     "serve-favicon": "^2.5.0",
     "serve-static": "^1.13.2"
@@ -26,8 +26,8 @@
     "chai": "^4.1.2",
     "chai-dom": "^1.7.0",
     "chai-http": "^4.0.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "mocha": "^5.0.5",
-    "mongodb": "^3.0.5"
+    "mongodb": "^3.0.8"
   }
 }
